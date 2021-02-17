@@ -5,11 +5,11 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
     filename: "./index.html"
 });
 const autoprefixer = require('autoprefixer');
-
+const distPath = path.resolve(__dirname, "dist");
 module.exports = {
-    entry: path.join(__dirname, "demo/src/index.js"),
+    entry: path.join(__dirname, "./src/index.js"),
     output: {
-        path: path.join(__dirname, "demo/dist"),
+        path: distPath,
         filename: "bundle.js"
     },
     module: {
@@ -17,7 +17,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 use: "babel-loader",
-                exclude: /node_modules/
+                exclude: [/node_modules/, /stories/]
             },
             {
                 test: /\.(scss|css)$/,

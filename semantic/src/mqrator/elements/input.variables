@@ -1,0 +1,5 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@border: solid 2px #ccc;
+@loaderLineColor: @primaryColor;

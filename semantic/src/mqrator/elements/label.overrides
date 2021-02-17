@@ -1,0 +1,12 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.circular.label.mqbadge {
+  padding-left:0.8em !important;
+  padding-right:0.8em !important;
+
+}
+.ui.basic.blue.label{
+  background-color: transparent !important;
+}

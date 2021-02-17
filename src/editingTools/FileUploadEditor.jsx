@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import { theme } from "../editables/EditablesContext";
 
+import {Container, Grid, Input as TextField} from 'semantic-ui-react';
 
 const styles = {
   container: {

@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import CheckIcon from "@material-ui/icons/Check";
-import CancelIcon from "@material-ui/icons/Close";
 
+import { Icon} from 'semantic-ui-react';
 
-const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth, onSave, handleDelete, disableDelete, isContentClickTarget, children }) => {
+const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth, onSave, handleDelete, disableDelete, isContentClickTarget, showActions,children }) => {
   let styles = theme
 
   if (fullWidth) {
@@ -29,7 +26,7 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
       onClick={isContentClickTarget ? startEditing : null}
       className="edit-container"
       style={
-        isEditing
+        isEditing && showActions
           ? {
               ...styles.editContainer,
               ...styles.editContainerHighlight
@@ -38,14 +35,14 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
       }
     >
       {children}
-      {isEditing && (
+      {isEditing && showActions && (
         <div className="actions" style={styles.actions}>
           <button
             className="cancel-icon"
             style={styles.button}
             onClick={stopEditing}
           >
-            <CancelIcon style={styles.icon} />
+            <label  style={styles.icon} >x</label>
           </button>
           {handleDelete &&
             !disableDelete && (
@@ -54,7 +51,7 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
                 style={styles.button}
                 onClick={handleDelete}
               >
-                <DeleteIcon style={styles.icon} />
+                <label  style={styles.icon} >x</label>
               </div>
             )}
           <button
@@ -63,21 +60,21 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
             style={{...styles.button, ...styles.saveButton}}
             onClick={onSave}
           >
-            <CheckIcon style={styles.icon} />
+            <label style={styles.icon}>&#10003;</label>
           </button>
         </div>
       )}
-      {!isEditing && (
-        <div className="actions" style={{...styles.actions, backgroundColor: 'none'}}>
-          <button
-            className="edit-icon"
-            style={styles.button}
-            onClick={startEditing}
-          >
-            <EditIcon style={styles.icon} />
-          </button>
-        </div>
-      )}
+      {/*{!isEditing && (*/}
+      {/*  <div className="actions" style={{...styles.actions, backgroundColor: 'none'}}>*/}
+      {/*    <button*/}
+      {/*      className="edit-icon"*/}
+      {/*      style={styles.button}*/}
+      {/*      onClick={startEditing}*/}
+      {/*    >*/}
+      {/*      <Icon name={"pencil"} style={styles.icon} />*/}
+      {/*    </button>*/}
+      {/*  </div>*/}
+      {/*)}*/}
     </div>
   );
 };
@@ -99,7 +96,8 @@ EditorWrapper.defaultProps = {
   isEditing: false,
   fullWidth: false,
   disableDelete: false,
-  isContentClickTarget: true
+  isContentClickTarget: true,
+  showActions:true
 }
 
 export default EditorWrapper;

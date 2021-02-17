@@ -1,20 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import EditorWrapper from "../editingTools/EditorWrapper";
-import { EditablesContext, theme } from "./EditablesContext";
+import { EditablesContext } from "./EditablesContext";
 
-const muiTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: theme.primaryColor,
-    }
-  },
-  typography: {
-    fontFamily: theme.fontFamily,
-    fontSize: theme.fontSize
-  }
-})
+
 
 class Editable extends React.Component {
   constructor(props) {
@@ -67,12 +56,11 @@ class Editable extends React.Component {
   }
 
   render() {
-    const { Editor, fullWidth, disableDelete, classes, children, EditorProps, WrapperProps, content, isContentClickTarget, ...rest } = this.props;
+    const { Editor, fullWidth, disableDelete, classes, children, EditorProps, WrapperProps, content, isContentClickTarget,showActions, ...rest } = this.props;
     const { editingContent } = this.state;
 
     if (this.context.showEditingControls) {
       return (
-        <ThemeProvider theme={muiTheme}>
           <EditorWrapper
             theme={this.context.theme}
             isEditing={this.state.isEditing}
@@ -82,6 +70,7 @@ class Editable extends React.Component {
             handleDelete={this.onDelete()}
             onSave={this.onSave}
             fullWidth={fullWidth}
+            showActions={showActions}
             disableDelete={disableDelete}
             isContentClickTarget={isContentClickTarget}
             WrapperProps={WrapperProps}
@@ -97,7 +86,6 @@ class Editable extends React.Component {
             )}
             {(!this.state.isEditing || !!this.props.showChildren) && children}
           </EditorWrapper>
-        </ThemeProvider>
       );
     } else {
       return children;

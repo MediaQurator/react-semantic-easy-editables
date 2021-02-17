@@ -1,8 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import Button from "@material-ui/core/Button"
-import IconButton from '@material-ui/core/IconButton';
-import AddIcon from "@material-ui/icons/Add";
 import { EditablesContext } from "./EditablesContext";
 
 
@@ -71,9 +68,9 @@ class EditableCollection extends React.Component {
           this.context.showEditingControls &&
           <div className="row mt-4">
             <div className="col-12">
-              <IconButton onClick={this.props.onAddItem || this.onAddItem}>
-                <AddIcon />
-              </IconButton>
+              <button onClick={this.props.onAddItem || this.onAddItem}>
+                AddIcon
+              </button>
             </div>
           </div>
         }

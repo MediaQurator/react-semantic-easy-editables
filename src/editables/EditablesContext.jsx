@@ -7,7 +7,7 @@ export const theme = {
   fontSize: 14,
   editContainer: {
     backgroundColor: "rgba(255,255,255,0.3)",
-    outline: "1px dashed rgba(0,0,0,0.5)",
+    // outline: "1px dashed rgba(0,0,0,0.5)",
     position: "relative",
     cursor: "pointer",
     margin: '1px',
@@ -16,7 +16,7 @@ export const theme = {
   editContainerHighlight: {
     backgroundColor: "rgba(255,255,255,0.9)",
     zIndex: "2500",
-    outline: "1px solid #FF6C45",
+    outline: "1px solid #739ffd",
   },
   actions: {
     position: "absolute",
@@ -25,7 +25,7 @@ export const theme = {
     display: "flex",
     alignItems: "center",
     zIndex: "99",
-    backgroundColor: "#FF6C45",
+    backgroundColor: "#739ffd",
     borderRadius: "30px",
     padding: '2px',
     width: "fit-content",

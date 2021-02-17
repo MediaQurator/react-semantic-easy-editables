@@ -1,0 +1,23 @@
+/*******************************
+         Site Overrides
+*******************************/
+/* browsers require these rules separate */
+
+.ui.input input::-webkit-input-placeholder {
+  color: @placeholderColor;
+}
+.ui.input input::-moz-placeholder {
+  color: @placeholderColor;
+}
+.ui.input input:-ms-input-placeholder {
+  color: @placeholderColor;
+}
+
+/*--------------------
+       Inverted
+---------------------*/
+
+/* Standard */
+.ui.transparent.padded.input input {
+	padding: @padding !important;
+}

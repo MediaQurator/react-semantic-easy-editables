@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import {Container, Grid, Input as TextField} from 'semantic-ui-react';
 
 import { theme } from "../editables/EditablesContext";
 

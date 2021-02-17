@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-
+import {Grid, Input as TextField} from 'semantic-ui-react';
 const styles = {
   label: {
     color: 'inherit',

@@ -1,0 +1,48 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*------------
+   Selection
+--------------*/
+
+@backgroundColor: @black;
+@selectionIconColor: #cccccc;
+
+/* Menu Item */
+@selectionItemColor: #cccccc;
+
+/* Message */
+@messageColor: fade(@selectionItemColor, 25%);
+
+/* custom padding */
+@extraMenuPaddingTop: 6px;
+@extraMenuPaddingBottom: 7px;
+
+/*-------------------
+       States
+--------------------*/
+
+/* Hovered */
+@hoveredItemBackground: rgba(115, 159, 253, .6);
+
+/* Selected */
+@selectedItemBackground: rgba(115, 159, 253, .3);
+
+/* Default Text */
+@defaultTextFocusColor: fade(@selectionItemColor, 40%);
+
+/*------------
+ input.variables
+--------------*/
+
+/* Down */
+@downBackground: #191d32;
+@downColor: rgba(255, 255, 255, 0.6);
+
+/*------------
+  Inverted
+------------*/
+
+/* <select> */
+@selectionInvertedTextColor: @selectionItemColor;

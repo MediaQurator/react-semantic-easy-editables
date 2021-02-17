@@ -1,0 +1,22 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+/*----------------------
+				Compact
+-----------------------*/
+
+.ui.compact.grid > .column:not(.row),
+.ui.compact.grid > .row > .column {
+	padding: 0;
+}
+
+.ui.compact.grid > .column:not(.row):first-child,
+.ui.compact.grid > .row > .column:first-child {
+	padding-left: (@gutterWidth / 2);
+}
+
+.ui.compact.grid > .column:not(.row):last-child,
+.ui.compact.grid > .row > .column:last-child {
+	padding-right: (@gutterWidth / 2);
+}

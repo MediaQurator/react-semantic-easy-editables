@@ -1,0 +1,48 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+@background: #f0f2f4;
+@messageBoderWidth:2px;
+
+
+/*INFO*/
+@infoBackgroundColor:rgba(114, 159, 253, 0.1);
+@infoTextColor: @blackSecundary;
+@infoHeaderColor: @primaryColor;
+@infoBorderColor: rgba(114, 159, 253, 0.4);
+
+@infoBoxShadow:
+  0px 0px 0px @messageBoderWidth @infoBorderColor inset,
+  @shadowShadow
+;
+
+/**warning*/
+
+@warningBackgroundColor:rgba(243, 156, 17, 0.1);
+@warningTextColor: @blackSecundary;
+@warningHeaderColor: @warningColor;
+@warningBorderColor: rgba(243, 156, 17, 0.4);
+@warningBoxShadow:
+  0px 0px 0px @messageBoderWidth @warningBorderColor inset,
+  @shadowShadow
+;
+
+/**----Success----------*/
+@successBackgroundColor:rgba(46, 204, 113, 0.1);
+@successTextColor: @blackSecundary;
+@successHeaderColor: @positiveColor;
+@successBorderColor: rgba(46, 204, 113, 0.4);
+@successBoxShadow:
+  0px 0px 0px @messageBoderWidth @successBorderColor inset,
+  @shadowShadow
+;
+
+/**----Negative----------*/
+@negativeBackgroundColor:rgba(192, 57, 43, 0.1);
+@negativeTextColor: @blackSecundary;
+@negativeHeaderColor: @negativeColor;
+@negativeBorderColor: rgba(192, 57, 43, 0.4);
+@negativeBoxShadow:
+  0px 0px 0px @messageBoderWidth @negativeBorderColor inset,
+  @shadowShadow
+;

@@ -1,0 +1,59 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Compact
+---------------*/
+.ui.feed.compact > .event > .content {
+	margin-top: @compactEventMargin;
+	margin-bottom: @compactEventMargin;
+}
+
+/*--------------
+     Striped
+---------------*/
+
+/* Table Striping */
+.ui.feed.striped > .event {
+	padding: @stripedEventPadding;
+}
+.ui.feed.striped > .event:nth-child(2n) {
+  background-color: @stripedBackground;
+}
+
+/*-------------------
+       Padded
+--------------------*/
+
+.ui.padded.feed {
+  padding: @paddedFeedPadding;
+}
+
+.ui[class*="very padded"].feed {
+  padding: @veryPaddedFeedPadding;
+}
+
+.ui.padded.bottom.feed {
+	padding: 0;
+	padding-bottom: @paddedFeedPadding;
+}
+
+.ui[class*="very padded"].bottom.feed {
+	padding: 0;
+	padding-bottom: @veryPaddedFeedPadding;
+}
+
+.ui.padded.top.feed {
+	padding: 0;
+	padding-top: @paddedFeedPadding;
+}
+
+.ui[class*="very padded"].top.feed {
+	padding: 0;
+	padding-top: @veryPaddedFeedPadding;
+}

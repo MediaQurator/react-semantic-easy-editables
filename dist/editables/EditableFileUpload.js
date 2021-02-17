@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
@@ -37,7 +35,7 @@ var EditableFileUpload = function EditableFileUpload(props) {
       filetype: filetype
     }
   }, props), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "action-link ".concat(classes),
+    className: "action-link " + classes,
     style: styles
   }, /*#__PURE__*/_react["default"].createElement("a", {
     className: props.linkClasses,

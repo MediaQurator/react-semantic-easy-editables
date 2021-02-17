@@ -1,0 +1,15 @@
+/*******************************
+        Site Overrides
+*******************************/
+.ui.info.message>.icon{
+   color:@primaryColor;
+}
+.ui.warning.message>.icon{
+   color:@warningColor;
+}
+.ui.success.message>.icon{
+   color:@positiveColor;
+}
+.ui.negative.message>.icon{
+   color:@negativeColor;
+}

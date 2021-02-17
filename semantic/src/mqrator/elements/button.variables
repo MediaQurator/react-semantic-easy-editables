@@ -1,0 +1,21 @@
+/*******************************
+     User Global Variables
+*******************************/
+@blue: #739ffd;
+@black: #212039;
+@blackFocus: lighten(@black, 15);
+@blackDown : lighten(@black, 10);
+@blackActive : darken(@black, 5);
+@primaryColor:@blue;
+
+@basicTextColor:  rgba(32,33,57,0.5); /*#212039*/;
+
+/* Basic */
+@borderColor: #cccccc;
+@basicBorderSize: 2px;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
+@basicBorderRadius: @borderRadius;
+@basicColoredBorderSize: 2px;
+@basicFontWeight:900;
+@basicDownBackground:#e0e1e2;
+@basicFocusBackground:#e0e1e2;

@@ -1,13 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Grid from '@material-ui/core/Grid';
+
+import {Container, Grid, Input as TextField, Radio, } from 'semantic-ui-react';
 
 
 const styles = {
@@ -123,14 +117,14 @@ const TimelineEditor =  ({ content, onContentChange }) => {
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
-        <FormControl component="fieldset">
-          <FormLabel component="legend" style={styles.radioFormLabel}>Alignment</FormLabel>
-          <RadioGroup aria-label="alignment" name="alignment" value={alignment} onChange={handleChange('alignment')} required>
-            <FormControlLabel value="left" control={<Radio size="small" style={styles.radioButton} />} label="Left" />
-            <FormControlLabel value="right" control={<Radio size="small" style={styles.radioButton} />} label="Right" />
-            <FormControlLabel value="center" control={<Radio size="small" style={styles.radioButton} />} label="Center" />
-          </RadioGroup>
-        </FormControl>
+
+          <label style={styles.radioFormLabel}>Alignment</label>
+
+          {/*<RadioGroup aria-label="alignment" name="alignment" value={alignment} onChange={handleChange('alignment')} required>*/}
+          {/*  <FormControlLabel value="left" control={<Radio size="small" style={styles.radioButton} />} label="Left" />*/}
+          {/*  <FormControlLabel value="right" control={<Radio size="small" style={styles.radioButton} />} label="Right" />*/}
+          {/*  <FormControlLabel value="center" control={<Radio size="small" style={styles.radioButton} />} label="Center" />*/}
+          {/*</RadioGroup>*/}
       </Grid>
     </Grid>
   );

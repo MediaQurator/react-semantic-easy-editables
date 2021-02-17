@@ -1,0 +1,14 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/* Compact */
+@compactEventMargin: 0;
+
+/* Striped */
+@stripedBackground: rgb(237, 238, 241);
+@stripedEventPadding: @relativeLarge @relative5px @relative5px @relativeLarge;
+
+/* Padded */
+@paddedFeedPadding: 1.5em;
+@veryPaddedFeedPadding: 3em;

@@ -1,0 +1,73 @@
+/*******************************
+        User Overrides
+*******************************/
+
+.ui.scrolling.dropdown .menu {
+  min-width: 250px !important;
+}
+
+.ui.selection.dropdown>.delete.icon,
+.ui.selection.dropdown>.dropdown.icon,
+.ui.selection.dropdown>.search.icon {
+  color: @selectionIconColor;
+}
+
+/*--------------------
+      Inverted
+---------------------*/
+
+.ui.inverted.selection.dropdown {
+  color: @selectionInvertedTextColor;
+}
+
+.ui.inverted.selection.dropdown .menu,
+.ui.inverted.selection.dropdown {
+  background-color: @backgroundColor;
+}
+
+.ui.inverted.search.selection.dropdown > input.search {
+  color: @selectionItemColor;
+}
+
+.ui.inverted.selection.dropdown .menu>.item,
+.ui.inverted.selection.dropdown .menu>.message,
+.ui.inverted.selection.dropdown .default.text {
+	border: none;
+	padding-top: @extraMenuPaddingTop !important;
+	
+	&:not(:last-child) {
+	  padding-bottom: @extraMenuPaddingBottom !important;
+	}
+}
+
+.ui.inverted.selection.dropdown .menu>.item {
+  color: @selectionItemColor;
+}
+
+.ui.inverted.selection.dropdown .menu > .item:hover {
+  background-color: @hoveredItemBackground;
+}
+
+.ui.inverted.selection.dropdown .menu .selected.item {
+  background: @selectedItemBackground;
+}
+
+.ui.inverted.selection.dropdown .menu>.message {
+  color: @messageColor;
+}
+
+
+/*--------------------
+     Default Text
+----------------------*/
+
+.ui.inverted.selection.dropdown > .text {
+  font-size: @relativeTiny;
+}
+
+.ui.inverted.selection.active.dropdown > .default.text,
+.ui.inverted.selection.active.default.dropdown > .text,
+.ui.inverted.selection.visible.dropdown > .default.text,
+.ui.inverted.selection.visible.default.dropdown > .text {
+  color: @defaultTextFocusColor;
+}
