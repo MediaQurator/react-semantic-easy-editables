@@ -1,9 +1,18 @@
 {
-  "name": "react-easy-editables",
-  "version": "0.9.1",
+  "name": "@jmanuel1609/react-edit-inline",
+  "version": "0.0.1",
   "description": "Editable components for editing content inline",
-  "keywords": "react, editable, inline editing, editable fields, react-easy-editables",
+  "keywords": [
+    "react",
+    "editable",
+    "inline editing",
+    "editable fields",
+    "react-easy-editables"
+  ],
   "main": "./dist/index.js",
+  "publishConfig":{
+    "registry":" https://registry.npmjs.org/@jmanuel1609/react-edit-inline"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
@@ -13,7 +22,7 @@
     "deploy": "gh-pages -d demo/dist",
     "storybook": "start-storybook -p 6006 --no-dll"
   },
-  "author": "Sharon Kennedy <sharon@nomadiclabs.com>",
+  "author": "Jesus Roblejo <jmanuel1609@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -103,5 +112,13 @@
     "react-onclickoutside": "^6.9.0",
     "react-rte": "^0.16.1",
     "semantic-ui-react": "^0.87.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MediaQurator/react-semantic-easy-editables.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MediaQurator/react-semantic-easy-editables/issues"
+  },
+  "homepage": "https://github.com/MediaQurator/react-semantic-easy-editables#readme"
 }
