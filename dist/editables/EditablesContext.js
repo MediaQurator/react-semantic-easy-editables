@@ -16,7 +16,6 @@ var theme = {
   fontSize: 14,
   editContainer: {
     backgroundColor: "rgba(255,255,255,0.3)",
-    // outline: "1px dashed rgba(0,0,0,0.5)",
     position: "relative",
     cursor: "pointer",
     margin: '1px',
