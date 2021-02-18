@@ -47,17 +47,9 @@ var _EditableResponsiveIframe = _interopRequireDefault(require("./editables/Edit
 
 exports.EditableResponsiveIframe = _EditableResponsiveIframe["default"];
 
-var _EditableTimeline = _interopRequireDefault(require("./editables/EditableTimeline"));
-
-exports.EditableTimeline = _EditableTimeline["default"];
-
 var _EditableSelection = _interopRequireDefault(require("./editables/EditableSelection"));
 
 exports.EditableSelection = _EditableSelection["default"];
-
-var _EditableLightboxImageUpload = _interopRequireDefault(require("./editables/EditableLightboxImageUpload"));
-
-exports.EditableLightboxImageUpload = _EditableLightboxImageUpload["default"];
 
 var _Editable = _interopRequireDefault(require("./editables/Editable"));
 
