@@ -5,7 +5,7 @@ import Editable from './Editable'
 import SelectorEditor from '../editingTools/SelectorEditor'
 
 
-function EditableSelection({ content, children, SelectorElement, EditorProps, onSave, onToggleEdit,...otherProps } ){
+function EditableSelection({ content, children, SelectorElement, EditorProps, onSave, isDoubleClick,onToggleEdit,...otherProps } ){
   const editableRef = useRef();
   function handleSave (obj, e){
     onSave(obj);
@@ -33,6 +33,7 @@ function EditableSelection({ content, children, SelectorElement, EditorProps, on
       handleSave={handleSave}
       handleCancel={handleCancel}
       content={content}
+      isDoubleClick={isDoubleClick}
       showChildren={false}
       showActions={false}
       { ...otherProps }>

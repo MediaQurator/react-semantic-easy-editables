@@ -56,12 +56,13 @@ class Editable extends React.Component {
   }
 
   render() {
-    const { Editor, fullWidth, disableDelete, classes, children, EditorProps, WrapperProps, content, isContentClickTarget,showActions, ...rest } = this.props;
+    const { Editor, fullWidth, disableDelete, classes, children,EditorProps, WrapperProps, content, isDoubleClick, isContentClickTarget,showActions, ...rest } = this.props;
     const { editingContent } = this.state;
 
     if (this.context.showEditingControls) {
       return (
           <EditorWrapper
+            isDoubleClick={isDoubleClick}
             theme={this.context.theme}
             isEditing={this.state.isEditing}
             toggleEditing={this.toggleEditing}

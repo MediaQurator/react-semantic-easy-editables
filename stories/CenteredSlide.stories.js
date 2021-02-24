@@ -5,6 +5,7 @@ import { default as EditableSelectionTest } from '../src/editables/EditableSelec
 import Modal from "./componentsUtils/Modal"
 import EditableParagraph from '../src/editables/EditableParagraph'
 import { default as EditableText } from '../src/editables/EditableText'
+import { EditablesContext, theme } from '../src/editables/EditablesContext';
 
 const rootStyle = {
   width:"100%",
@@ -53,22 +54,30 @@ const Template = (args) =>  {
   function onSaveText(e){
     setText(e);
   }
-  return  <div style={rootStyle}>
+  const context = {theme, showEditingControls:true}
+  return (
+    <EditablesContext.Provider value={ context }>
+      <div style={rootStyle}>
 
-           <h1><EditableText content={header} onSave={onSaveHeader} /></h1>
+        <h1><EditableText content={header} onSave={onSaveHeader} /></h1>
 
-           <div style={headerTextStyle}>
-              <EditableParagraph content={text} onSave={onSaveText} />
-            </div>
+        <div style={headerTextStyle}>
+          <EditableParagraph content={text} onSave={onSaveText} />
+        </div>
 
-            <EditableSelectionTest content={selection} onSave={onSave}
-                           SelectorElement={Modal}
-                           onCancel={handleCancel}
-                           onToggleEdit={handleToggleEdit}
-                           EditorProps={EditorProps}>
-                  <div style={mediaText}>{selection.text}</div>
-            </EditableSelectionTest>
-  </div>
+        <EditableSelectionTest content={selection} onSave={onSave}
+                               SelectorElement={Modal}
+                               onCancel={handleCancel}
+                               isDoubleClick
+                               onToggleEdit={handleToggleEdit}
+                               EditorProps={EditorProps}>
+          <div style={mediaText}>{selection.text}</div>
+        </EditableSelectionTest>
+      </div>
+    </EditablesContext.Provider>
+  )
+
+
 };
 
 // Each story then reuses that template

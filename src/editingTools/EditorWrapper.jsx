@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Icon} from 'semantic-ui-react';
 
-const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth, onSave, handleDelete, disableDelete, isContentClickTarget, showActions,children }) => {
+const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth, onSave, handleDelete, disableDelete, isDoubleClick,isContentClickTarget, showActions, children }) => {
   let styles = theme
 
   if (fullWidth) {
@@ -21,9 +20,18 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
     };
   }
 
+  let propsEvents = {
+    onClick:isContentClickTarget ? startEditing : null,
+
+  };
+  if(isDoubleClick) {
+    propsEvents = {
+      onDoubleClick : isContentClickTarget ? startEditing : null
+    }
+  }
   return (
     <div
-      onClick={isContentClickTarget ? startEditing : null}
+      {...propsEvents}
       className="edit-container"
       style={
         isEditing && showActions
