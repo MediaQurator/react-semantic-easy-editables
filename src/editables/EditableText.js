@@ -17,9 +17,8 @@ const EditableText = ({ classes, content, ...props }) => {
       Editor={PlainTextEditor}
       handleSave={handleSave}
       content={content}
-      {...props}
-    >
-      { text }
+      {...props}>
+      <span>{ text }</span>
     </Editable>
   );
 };

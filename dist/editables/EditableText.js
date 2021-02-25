@@ -31,7 +31,7 @@ var EditableText = function EditableText(_ref) {
     Editor: _PlainTextEditor["default"],
     handleSave: handleSave,
     content: content
-  }, props), text);
+  }, props), /*#__PURE__*/_react["default"].createElement("span", null, text));
 };
 
 EditableText.propTypes = {
