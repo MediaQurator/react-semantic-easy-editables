@@ -1,7 +1,7 @@
 import React from "react";
 
 export const theme = {
-  primaryColor: "#FF6C45", // orange
+  primaryColor: "#739ffd", // orange
   lightColor: "#E5E5E5", // light grey
   fontFamily: "sans-serif",
   fontSize: 14,
