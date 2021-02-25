@@ -27,8 +27,9 @@ function EditableSelection(_ref) {
       SelectorElement = _ref.SelectorElement,
       EditorProps = _ref.EditorProps,
       onSave = _ref.onSave,
+      isDoubleClick = _ref.isDoubleClick,
       onToggleEdit = _ref.onToggleEdit,
-      otherProps = _objectWithoutPropertiesLoose(_ref, ["content", "children", "SelectorElement", "EditorProps", "onSave", "onToggleEdit"]);
+      otherProps = _objectWithoutPropertiesLoose(_ref, ["content", "children", "SelectorElement", "EditorProps", "onSave", "isDoubleClick", "onToggleEdit"]);
 
   var editableRef = (0, _react.useRef)();
 
@@ -63,6 +64,7 @@ function EditableSelection(_ref) {
     handleSave: handleSave,
     handleCancel: handleCancel,
     content: content,
+    isDoubleClick: isDoubleClick,
     showChildren: false,
     showActions: false
   }, otherProps), children);

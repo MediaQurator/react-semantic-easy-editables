@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var theme = {
-  primaryColor: "#FF6C45",
+  primaryColor: "#739ffd",
   // orange
   lightColor: "#E5E5E5",
   // light grey

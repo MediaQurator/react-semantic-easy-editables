@@ -7,8 +7,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _semanticUiReact = require("semantic-ui-react");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -22,6 +20,7 @@ var EditorWrapper = function EditorWrapper(_ref) {
       onSave = _ref.onSave,
       handleDelete = _ref.handleDelete,
       disableDelete = _ref.disableDelete,
+      isDoubleClick = _ref.isDoubleClick,
       isContentClickTarget = _ref.isContentClickTarget,
       showActions = _ref.showActions,
       children = _ref.children;
@@ -39,11 +38,20 @@ var EditorWrapper = function EditorWrapper(_ref) {
     });
   }
 
-  return /*#__PURE__*/_react["default"].createElement("div", {
-    onClick: isContentClickTarget ? startEditing : null,
+  var propsEvents = {
+    onClick: isContentClickTarget ? startEditing : null
+  };
+
+  if (isDoubleClick) {
+    propsEvents = {
+      onDoubleClick: isContentClickTarget ? startEditing : null
+    };
+  }
+
+  return /*#__PURE__*/_react["default"].createElement("div", _extends({}, propsEvents, {
     className: "edit-container",
     style: isEditing && showActions ? _extends({}, styles.editContainer, {}, styles.editContainerHighlight) : styles.editContainer
-  }, children, isEditing && showActions && /*#__PURE__*/_react["default"].createElement("div", {
+  }), children, isEditing && showActions && /*#__PURE__*/_react["default"].createElement("div", {
     className: "actions",
     style: styles.actions
   }, /*#__PURE__*/_react["default"].createElement("button", {

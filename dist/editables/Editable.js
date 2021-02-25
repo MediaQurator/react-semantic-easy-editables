@@ -114,14 +114,16 @@ var Editable = /*#__PURE__*/function (_React$Component) {
         EditorProps = _this$props.EditorProps,
         WrapperProps = _this$props.WrapperProps,
         content = _this$props.content,
+        isDoubleClick = _this$props.isDoubleClick,
         isContentClickTarget = _this$props.isContentClickTarget,
         showActions = _this$props.showActions,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["Editor", "fullWidth", "disableDelete", "classes", "children", "EditorProps", "WrapperProps", "content", "isContentClickTarget", "showActions"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["Editor", "fullWidth", "disableDelete", "classes", "children", "EditorProps", "WrapperProps", "content", "isDoubleClick", "isContentClickTarget", "showActions"]);
 
     var editingContent = this.state.editingContent;
 
     if (this.context.showEditingControls) {
       return /*#__PURE__*/_react["default"].createElement(_EditorWrapper["default"], {
+        isDoubleClick: isDoubleClick,
         theme: this.context.theme,
         isEditing: this.state.isEditing,
         toggleEditing: this.toggleEditing,
