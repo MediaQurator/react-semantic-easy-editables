@@ -9,6 +9,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _semanticUiReact = require("semantic-ui-react");
 
+var _EditablesContext = require("../editables/EditablesContext");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -42,16 +44,16 @@ var styles = {
   },
   button: {
     cursor: "pointer",
-    background: theme.primaryColor,
-    border: "1px solid " + theme.primaryColor,
+    background: _EditablesContext.theme.primaryColor,
+    border: "1px solid " + _EditablesContext.theme.primaryColor,
     color: '#000000',
     display: "inline-flex",
     padding: "6px 12px",
-    fontSize: theme.fontSize + "px",
-    fontFamily: theme.fontFamily,
+    fontSize: _EditablesContext.theme.fontSize + "px",
+    fontFamily: _EditablesContext.theme.fontFamily,
     borderRadius: "2px",
     "&:hover, &:focus": {
-      background: theme.primaryColor
+      background: _EditablesContext.theme.primaryColor
     }
   },
   hidden: {

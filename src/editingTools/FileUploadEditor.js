@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {Container, Grid, Input as TextField} from 'semantic-ui-react';
+import { theme } from "../editables/EditablesContext";
 
 const styles = {
   container: {
