@@ -11,7 +11,8 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
       editContainer: {
         ...styles.editContainer,
         padding: "0",
-        marginBottom: "0"
+        marginBottom: "0",
+        position:"relative"
       },
       actions: {
         ...styles.actions,
