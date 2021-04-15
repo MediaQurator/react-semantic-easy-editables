@@ -30,7 +30,8 @@ var EditorWrapper = function EditorWrapper(_ref) {
     styles = _extends({}, styles, {
       editContainer: _extends({}, styles.editContainer, {
         padding: "0",
-        marginBottom: "0"
+        marginBottom: "0",
+        position: "relative"
       }),
       actions: _extends({}, styles.actions, {
         top: "6px"
