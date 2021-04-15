@@ -38,9 +38,10 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
         isEditing && showActions
           ? {
               ...styles.editContainer,
-              ...styles.editContainerHighlight
+              ...styles.editContainerHighlight,
+               position:"relative"
             }
-          : styles.editContainer
+          : {...styles.editContainer, position:"relative"}
       }
     >
       {children}
