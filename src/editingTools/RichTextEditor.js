@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import TextEditor from 'react-rte';
+import TextEditor, { createValueFromString} from 'react-rte';
 
 
 const TOOLBAR_CONFIG = {
