@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Editable from "./Editable";
-import RichTextEditor from '../editingTools/RichTextEditor'
+import {RichTextEditor} from '../index'
 
 const EditableParagraph = props => {
   const handleSave = newContent => {

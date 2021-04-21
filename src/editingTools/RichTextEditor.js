@@ -1,7 +1,27 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import TextEditor, { createValueFromString, ButtonGroup, Button} from 'react-rte';
+import TextEditor from 'react-rte';
 
+
+const TOOLBAR_CONFIG = {
+  // Optionally specify the groups to display (displayed in the order listed).
+  display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'HISTORY_BUTTONS'],
+  INLINE_STYLE_BUTTONS: [
+    {label: 'Bold', style: 'BOLD', className: 'custom-css-class'},
+    {label: 'Italic', style: 'ITALIC'},
+    {label: 'Underline', style: 'UNDERLINE'}
+  ],
+  BLOCK_TYPE_DROPDOWN: [
+    {label: 'Normal', style: 'unstyled'},
+    {label: 'Heading Large', style: 'header-one'},
+    {label: 'Heading Medium', style: 'header-two'},
+    {label: 'Heading Small', style: 'header-three'}
+  ],
+  BLOCK_TYPE_BUTTONS: [
+    {label: 'UL', style: 'unordered-list-item'},
+    {label: 'OL', style: 'ordered-list-item'}
+  ]
+}
 
 const styles = {
   input: {
@@ -43,34 +63,16 @@ class RichTextEditor extends React.Component {
   render() {
     const { editorValue } = this.state;
     const { classes, EditorProps, placeholder } = this.props;
-    const toolbarConfig = {
-      // Optionally specify the groups to display (displayed in the order listed).
-      display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'HISTORY_BUTTONS'],
-      INLINE_STYLE_BUTTONS: [
-        {label: 'Bold', style: 'BOLD', className: 'custom-css-class'},
-        {label: 'Italic', style: 'ITALIC'},
-        {label: 'Underline', style: 'UNDERLINE'}
-      ],
-      BLOCK_TYPE_DROPDOWN: [
-        {label: 'Normal', style: 'unstyled'},
-        {label: 'Heading Large', style: 'header-one'},
-        {label: 'Heading Medium', style: 'header-two'},
-        {label: 'Heading Small', style: 'header-three'}
-      ],
-      BLOCK_TYPE_BUTTONS: [
-        {label: 'UL', style: 'unordered-list-item'},
-        {label: 'OL', style: 'ordered-list-item'}
-      ]
-    }
+
     if (editorValue) {
       return (
         <div style={styles.input} className={classes}>
           <TextEditor
-            toolbarConfig={toolbarConfig}
             placeholder={placeholder}
             value={editorValue}
             onChange={this.onChange}
             {...EditorProps}
+            toolbarConfig={TOOLBAR_CONFIG}
           />
         </div>
       )

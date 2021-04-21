@@ -51,7 +51,11 @@ var EditorWrapper = function EditorWrapper(_ref) {
 
   return /*#__PURE__*/_react["default"].createElement("div", _extends({}, propsEvents, {
     className: "edit-container",
-    style: isEditing && showActions ? _extends({}, styles.editContainer, {}, styles.editContainerHighlight) : styles.editContainer
+    style: isEditing && showActions ? _extends({}, styles.editContainer, {}, styles.editContainerHighlight, {
+      position: "relative"
+    }) : _extends({}, styles.editContainer, {
+      position: "relative"
+    })
   }), children, isEditing && showActions && /*#__PURE__*/_react["default"].createElement("div", {
     className: "actions",
     style: styles.actions

@@ -9,7 +9,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Editable = _interopRequireDefault(require("./Editable"));
 
-var _RichTextEditor = _interopRequireDefault(require("../editingTools/RichTextEditor"));
+var _index = require("../index");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -22,7 +22,7 @@ var EditableParagraph = function EditableParagraph(props) {
 
   var text = props.content.text;
   return /*#__PURE__*/_react["default"].createElement(_Editable["default"], _extends({
-    Editor: _RichTextEditor["default"],
+    Editor: _index.RichTextEditor,
     handleSave: handleSave,
     content: {
       text: text

@@ -7,11 +7,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactRte = _interopRequireWildcard(require("react-rte"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _reactRte = _interopRequireDefault(require("react-rte"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -29,6 +25,41 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
+var TOOLBAR_CONFIG = {
+  // Optionally specify the groups to display (displayed in the order listed).
+  display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'HISTORY_BUTTONS'],
+  INLINE_STYLE_BUTTONS: [{
+    label: 'Bold',
+    style: 'BOLD',
+    className: 'custom-css-class'
+  }, {
+    label: 'Italic',
+    style: 'ITALIC'
+  }, {
+    label: 'Underline',
+    style: 'UNDERLINE'
+  }],
+  BLOCK_TYPE_DROPDOWN: [{
+    label: 'Normal',
+    style: 'unstyled'
+  }, {
+    label: 'Heading Large',
+    style: 'header-one'
+  }, {
+    label: 'Heading Medium',
+    style: 'header-two'
+  }, {
+    label: 'Heading Small',
+    style: 'header-three'
+  }],
+  BLOCK_TYPE_BUTTONS: [{
+    label: 'UL',
+    style: 'unordered-list-item'
+  }, {
+    label: 'OL',
+    style: 'ordered-list-item'
+  }]
+};
 var styles = {
   input: {
     fontSize: "inherit",
@@ -51,7 +82,7 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
 
     _this.initializeEditorState = function () {
       var text = Boolean(_this.props.content) ? _this.props.content.text : '';
-      var editorValue = (0, _reactRte.createValueFromString)(text, 'html');
+      var editorValue = createValueFromString(text, 'html');
 
       _this.setState({
         editorValue: editorValue
@@ -97,7 +128,9 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
         placeholder: placeholder,
         value: editorValue,
         onChange: this.onChange
-      }, EditorProps)));
+      }, EditorProps, {
+        toolbarConfig: TOOLBAR_CONFIG
+      })));
     }
 
     return /*#__PURE__*/_react["default"].createElement("div", null);

@@ -24,7 +24,8 @@ var theme = {
   editContainerHighlight: {
     backgroundColor: "rgba(255,255,255,0.9)",
     zIndex: "2500",
-    outline: "1px solid #739ffd"
+    outline: "1px solid #739ffd",
+    position: "relative"
   },
   actions: {
     position: "absolute",
