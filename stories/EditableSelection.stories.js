@@ -19,12 +19,17 @@ const Template = (args) =>  {
   function handleToggleEdit(editing){
     setOpenModal(editing)
   }
+  function handleOpenEdit(editing){
+    setOpenModal(true)
+  }
 
   const EditorProps = {
     selection,
     open:openModal
   }
+  console.log(EditorProps)
   return  <div className="header-content">
+    <button onClick={handleOpenEdit}>Click to select here </button>
     <ComponentTest content={selection} onSave={onSave}
                    SelectorElement={Modal}
                    onCancel={handleCancel}

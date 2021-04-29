@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import Editable from './Editable'
@@ -7,6 +7,19 @@ import SelectorEditor from '../editingTools/SelectorEditor'
 
 function EditableSelection({ content, children, SelectorElement, EditorProps, onSave, isDoubleClick,onToggleEdit,...otherProps } ){
   const editableRef = useRef();
+  const _open = EditorProps ? EditorProps.open : false
+  useEffect(() => {
+    if(_open) {
+      openEditExternal()
+    }
+  }, [_open]);
+
+  function openEditExternal(){
+    const faveEvent = {
+      stopPropagation:() => {}
+    }
+    editableRef.current.startEditing(faveEvent);
+  }
   function handleSave (obj, e){
     onSave(obj);
     const faveEvent = {
@@ -23,7 +36,7 @@ function EditableSelection({ content, children, SelectorElement, EditorProps, on
   function handleToggleEdit(editing, content){
     onToggleEdit(editing, content)
   }
-  const _EditorProps = Object.assign({},EditorProps, {onToggleEdit:handleToggleEdit} )
+  const _EditorProps = Object.assign({}, EditorProps, {onToggleEdit:handleToggleEdit} );
   return (
     <Editable
       ref={editableRef}

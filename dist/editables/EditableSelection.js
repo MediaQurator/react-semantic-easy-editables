@@ -33,6 +33,21 @@ function EditableSelection(_ref) {
 
   var editableRef = (0, _react.useRef)();
 
+  var _open = EditorProps ? EditorProps.open : false;
+
+  (0, _react.useEffect)(function () {
+    if (_open) {
+      openEditExternal();
+    }
+  }, [_open]);
+
+  function openEditExternal() {
+    var faveEvent = {
+      stopPropagation: function stopPropagation() {}
+    };
+    editableRef.current.startEditing(faveEvent);
+  }
+
   function handleSave(obj, e) {
     onSave(obj);
     var faveEvent = {
