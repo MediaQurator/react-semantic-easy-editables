@@ -21,14 +21,22 @@ class Editable extends React.Component {
   }
 
   toggleEditing = (e) => {
+    const isEditing = !this.state.isEditing;
     e.stopPropagation();
-    this.setState({ isEditing: !this.state.isEditing });
+    if(isEditing) {
+      const canEdit = this.canEdit(e.target)
+      if(!canEdit) {
+        return;
+      }
+    }
+    this.setState({ isEditing });
   };
 
   canEdit = (target) => {
     if(target && target.id
       && this.props.editableElementIds
       && this.props.editableElementIds.length > 0) {
+      console.log( this.props.editableElementIds,target.id );
       return this.props.editableElementIds.includes(target.id)
     }
     return true;

@@ -40,15 +40,25 @@ var Editable = /*#__PURE__*/function (_React$Component) {
     _this = _React$Component.call(this, props) || this;
 
     _this.toggleEditing = function (e) {
+      var isEditing = !_this.state.isEditing;
       e.stopPropagation();
 
+      if (isEditing) {
+        var canEdit = _this.canEdit(e.target);
+
+        if (!canEdit) {
+          return;
+        }
+      }
+
       _this.setState({
-        isEditing: !_this.state.isEditing
+        isEditing: isEditing
       });
     };
 
     _this.canEdit = function (target) {
       if (target && target.id && _this.props.editableElementIds && _this.props.editableElementIds.length > 0) {
+        console.log(_this.props.editableElementIds, target.id);
         return _this.props.editableElementIds.includes(target.id);
       }
 

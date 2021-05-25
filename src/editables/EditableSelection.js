@@ -7,7 +7,8 @@ import SelectorEditor from '../editingTools/SelectorEditor'
 
 function EditableSelection({ content, children, SelectorElement, EditorProps, onSave, isDoubleClick,onToggleEdit,...otherProps } ){
   const editableRef = useRef();
-  const _open = EditorProps ? EditorProps.open : false
+  const _open = EditorProps ? EditorProps.open : false;
+
   useEffect(() => {
     if(_open) {
       openEditExternal()

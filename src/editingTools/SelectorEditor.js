@@ -4,13 +4,14 @@ function SelectorEditor({EditorProps, content, handleSave, handleCancel ,Selecto
 
 
   const {onToggleEdit} = EditorProps;
+
   useEffect(() => {
     onToggleEdit(true)
     // Specify how to clean up after this effect:
     return function cleanup() {
       onToggleEdit(false, content)
     };
-  });
+  }, []);
 
   function onSelect(obj,e){
     onContentChange(obj);

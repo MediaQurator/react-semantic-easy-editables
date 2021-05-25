@@ -25,7 +25,7 @@ function SelectorEditor(_ref) {
     return function cleanup() {
       onToggleEdit(false, content);
     };
-  });
+  }, []);
 
   function onSelect(obj, e) {
     onContentChange(obj);
