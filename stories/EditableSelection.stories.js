@@ -9,7 +9,6 @@ const Template = (args) =>  {
   const [openModal, setOpenModal] = React.useState(false)
   const [selection, setSelection] = React.useState(args.content)
   function onSave(e){
-    console.log("onSave", e)
     setSelection(e);
   }
   function handleCancel(){
@@ -32,10 +31,9 @@ const Template = (args) =>  {
     <ComponentTest content={selection} onSave={onSave}
                    SelectorElement={Modal}
                    onCancel={handleCancel}
-                   editableElementIds={["selectId"]}
                    onToggleEdit={handleToggleEdit}
                    EditorProps={EditorProps}>
-      <div id={"selectId"}>{selection.text}</div>
+      <div >{selection.text}</div>
     </ComponentTest>
   </div>
 };
