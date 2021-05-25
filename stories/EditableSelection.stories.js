@@ -27,15 +27,15 @@ const Template = (args) =>  {
     selection,
     open:openModal
   }
-  console.log(EditorProps)
   return  <div className="header-content">
     <button onClick={handleOpenEdit}>Click to select here </button>
     <ComponentTest content={selection} onSave={onSave}
                    SelectorElement={Modal}
                    onCancel={handleCancel}
+                   editableElementIds={["selectId"]}
                    onToggleEdit={handleToggleEdit}
                    EditorProps={EditorProps}>
-      <div>{selection.text}</div>
+      <div id={"selectId"}>{selection.text}</div>
     </ComponentTest>
   </div>
 };

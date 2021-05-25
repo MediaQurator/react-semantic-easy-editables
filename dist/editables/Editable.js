@@ -47,12 +47,24 @@ var Editable = /*#__PURE__*/function (_React$Component) {
       });
     };
 
+    _this.canEdit = function (target) {
+      if (target && target.id && _this.props.editableElementIds && _this.props.editableElementIds.length > 0) {
+        return _this.props.editableElementIds.includes(target.id);
+      }
+
+      return true;
+    };
+
     _this.startEditing = function (e) {
+      var canEdit = _this.canEdit(e.target);
+
       e.stopPropagation();
 
-      _this.setState({
-        isEditing: true
-      });
+      if (canEdit) {
+        _this.setState({
+          isEditing: true
+        });
+      }
     };
 
     _this.stopEditing = function (e) {

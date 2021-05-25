@@ -25,9 +25,21 @@ class Editable extends React.Component {
     this.setState({ isEditing: !this.state.isEditing });
   };
 
+  canEdit = (target) => {
+    if(target && target.id
+      && this.props.editableElementIds
+      && this.props.editableElementIds.length > 0) {
+      return this.props.editableElementIds.includes(target.id)
+    }
+    return true;
+  }
   startEditing = e => {
+    const canEdit = this.canEdit(e.target)
     e.stopPropagation();
-    this.setState({ isEditing: true });
+    if(canEdit) {
+      this.setState({ isEditing: true });
+    }
+
   }
 
   stopEditing = e => {
