@@ -38,15 +38,28 @@ var PlainTextEditor = function PlainTextEditor(_ref) {
   var handleChange = function handleChange(event) {
     event.preventDefault();
     event.stopPropagation();
+    var text = event.currentTarget.value;
+
+    if (EditorProps && EditorProps.uppercase && text) {
+      text = text.toUpperCase();
+    }
+
     onContentChange(_extends({}, content, {
-      text: event.currentTarget.value
+      text: text
     }));
   };
 
   var text = Boolean(content) ? content.text : '';
+
+  var _style = _extends({}, styles.input);
+
+  if (EditorProps && EditorProps.uppercase) {
+    _style.textTransform = "uppercase";
+  }
+
   return /*#__PURE__*/_react["default"].createElement("input", _extends({
     type: "text",
-    style: styles.input,
+    style: _style,
     value: text,
     onChange: handleChange,
     className: classes,

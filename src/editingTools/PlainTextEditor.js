@@ -21,19 +21,30 @@ const PlainTextEditor = ({ content, onContentChange, classes, EditorProps, place
 
   const handleChange = event => {
     event.preventDefault()
-    event.stopPropagation()
+    event.stopPropagation();
+    let text = event.currentTarget.value;
+    if(EditorProps && EditorProps.uppercase && text) {
+      text = text.toUpperCase();
+    }
     onContentChange({
       ...content,
-      text: event.currentTarget.value
+      text
     })
   }
 
   const text = Boolean(content) ? content.text : '';
 
+  const _style = {
+    ...styles.input,
+  };
+  if(EditorProps && EditorProps.uppercase) {
+    _style.textTransform = "uppercase"
+
+  }
   return (
     <input
       type="text"
-      style={styles.input}
+      style={_style}
       value={text}
       onChange={handleChange}
       className={classes}

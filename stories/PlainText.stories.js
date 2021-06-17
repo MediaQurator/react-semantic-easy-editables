@@ -9,7 +9,11 @@ const Template = (args) =>  {
     setTitle(e)
   }
   return  <div className="header-content">
-    <h1><ComponentTest content={title} onSave={onSave} /></h1>
+    <h1><ComponentTest content={title}
+                       EditorProps={{
+                         uppercase:true
+                       }}
+                       onSave={onSave} /></h1>
   </div>
 };
 

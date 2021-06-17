@@ -9,7 +9,14 @@ const Template = (args) =>  {
     setValue(e)
   }
   return  <div className="header-content">
-    <ComponentTest content={value} onSave={onSave} />
+    <ComponentTest content={value}
+                   EditorProps={{
+                     editorStyle: {
+                       maxHeight:200,
+                       overflowY:"auto"
+                     }
+                   }}
+                   onSave={onSave} />
   </div>
 };
 
