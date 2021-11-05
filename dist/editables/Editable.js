@@ -81,9 +81,13 @@ var Editable = /*#__PURE__*/function (_React$Component) {
       return null;
     };
 
-    _this.onContentChange = function (updatedContent) {
+    _this.onContentChange = function (updatedContent, callback) {
       _this.setState({
         editingContent: updatedContent
+      }, function () {
+        if (callback) {
+          callback(updatedContent);
+        }
       });
     };
 
@@ -140,6 +144,7 @@ var Editable = /*#__PURE__*/function (_React$Component) {
         content: editingContent,
         onContentChange: this.onContentChange,
         classes: classes,
+        onSaveMandatory: this.onSave,
         EditorProps: EditorProps
       }, rest)), (!this.state.isEditing || !!this.props.showChildren) && children);
     } else {

@@ -105,6 +105,19 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
       }));
     };
 
+    _this.handleBlur = function (event) {
+      event.preventDefault();
+      event.persist();
+
+      var text = _this.state.editorValue.toString('html');
+
+      _this.props.onContentChange(_extends({}, _this.props.content, {
+        text: text
+      }), function () {
+        _this.props.onSaveMandatory(event);
+      });
+    };
+
     _this.state = {
       editorValue: null
     };
@@ -131,7 +144,8 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/_react["default"].createElement(_reactRte["default"], _extends({
         placeholder: placeholder,
         value: editorValue,
-        onChange: this.onChange
+        onChange: this.onChange,
+        onBlur: this.handleBlur
       }, EditorProps, {
         toolbarConfig: TOOLBAR_CONFIG
       })));

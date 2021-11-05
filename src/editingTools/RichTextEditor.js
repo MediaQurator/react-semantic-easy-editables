@@ -59,7 +59,18 @@ class RichTextEditor extends React.Component {
     })
   }
 
+   handleBlur = (event) => {
 
+    event.preventDefault()
+    event.persist();
+     const text = this.state.editorValue.toString('html')
+     this.props.onContentChange({
+       ...this.props.content,
+       text: text
+     }, () => {
+       this.props.onSaveMandatory(event);
+     })
+  }
   render() {
     const { editorValue } = this.state;
     const { classes, EditorProps, placeholder } = this.props;
@@ -71,6 +82,7 @@ class RichTextEditor extends React.Component {
             placeholder={placeholder}
             value={editorValue}
             onChange={this.onChange}
+            onBlur={this.handleBlur}
             {...EditorProps}
             toolbarConfig={TOOLBAR_CONFIG}
           />

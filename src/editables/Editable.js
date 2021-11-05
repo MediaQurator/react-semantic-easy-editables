@@ -53,8 +53,12 @@ class Editable extends React.Component {
     return null
   }
 
-  onContentChange = updatedContent => {
-    this.setState({ editingContent: updatedContent })
+  onContentChange = (updatedContent, callback) => {
+    this.setState({ editingContent: updatedContent }, () => {
+      if(callback) {
+        callback(updatedContent)
+      }
+    })
   }
 
   render() {
@@ -83,6 +87,7 @@ class Editable extends React.Component {
                 content={editingContent}
                 onContentChange={this.onContentChange}
                 classes={classes}
+                onSaveMandatory={this.onSave}
                 EditorProps={EditorProps}
                 {...rest}
               />

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { func } from 'prop-types'
 import { theme } from "../editables/EditablesContext";
 
 const styles = {
@@ -17,7 +17,7 @@ const styles = {
   }
 };
 
-const PlainTextEditor = ({ content, onContentChange, classes, EditorProps, placeholder }) => {
+const PlainTextEditor = ({ content, onContentChange, classes, EditorProps, placeholder, onSaveMandatory }) => {
 
   const handleChange = event => {
     event.preventDefault()
@@ -41,15 +41,31 @@ const PlainTextEditor = ({ content, onContentChange, classes, EditorProps, place
     _style.textTransform = "uppercase"
 
   }
+  function handleBlur(event){
+    let text = event.currentTarget.value;
+
+    event.preventDefault()
+    event.persist();
+    if(EditorProps && EditorProps.uppercase && text) {
+      text = text.toUpperCase();
+    }
+    onContentChange({
+      ...content,
+      text
+    }, () => {
+      onSaveMandatory(event)
+    })
+  }
   return (
     <input
       type="text"
       style={_style}
       value={text}
       onChange={handleChange}
+      onBlur={handleBlur}
       className={classes}
       placeholder={placeholder}
-      autoFocus={true}
+      // autoFocus={true}
       {...EditorProps}
     />
   );
