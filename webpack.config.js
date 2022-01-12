@@ -9,6 +9,10 @@ const distPath = path.resolve(__dirname, "dist");
 module.exports = {
     entry: path.join(__dirname, "./src/index.js"),
     output: {
+        library: {
+          type: "umd",
+          name: "mq-extras",
+        },
         path: distPath,
         filename: "bundle.js"
     },
