@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import PropTypes from "prop-types";
-import TextEditor, { createValueFromString} from 'react-rte';
 
-
+const TextEditor = React.lazy(() => import('react-rte'))
 const TOOLBAR_CONFIG = {
   // Optionally specify the groups to display (displayed in the order listed).
   display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'HISTORY_BUTTONS'],
@@ -44,9 +43,12 @@ class RichTextEditor extends React.Component {
   }
 
   initializeEditorState = () => {
-    const text = Boolean(this.props.content) ? this.props.content.text : '';
-    const editorValue = createValueFromString(text, 'html');
-    this.setState({ editorValue });
+    import('react-rte').then(module => {
+      const text = Boolean(this.props.content) ? this.props.content.text : '';
+      const editorValue = module.createValueFromString(text, 'html');
+      this.setState({ editorValue });
+    })
+
   }
 
   onChange = (editorValue) => {
@@ -78,14 +80,17 @@ class RichTextEditor extends React.Component {
     if (editorValue) {
       return (
         <div style={styles.input} className={classes}>
-          <TextEditor
-            placeholder={placeholder}
-            value={editorValue}
-            onChange={this.onChange}
-            onBlur={this.handleBlur}
-            {...EditorProps}
-            toolbarConfig={TOOLBAR_CONFIG}
-          />
+          <Suspense fallback={<div>....</div>}>
+            <TextEditor
+              placeholder={placeholder}
+              value={editorValue}
+              onChange={this.onChange}
+              onBlur={this.handleBlur}
+              {...EditorProps}
+              toolbarConfig={TOOLBAR_CONFIG}
+            />
+          </Suspense>
+
         </div>
       )
     }

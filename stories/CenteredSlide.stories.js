@@ -5,7 +5,7 @@ import { default as EditableSelectionTest } from '../src/editables/EditableSelec
 import Modal from "./componentsUtils/Modal"
 import EditableParagraph from '../src/editables/EditableParagraph'
 import { default as EditableText } from '../src/editables/EditableText'
-import { EditablesContext, theme } from '../src/editables/EditablesContext';
+import { EditablesContext, theme } from '../src';
 
 const rootStyle = {
   width:"100%",

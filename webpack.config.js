@@ -1,9 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "demo/src/index.html"),
-    filename: "./index.html"
-});
+
 const autoprefixer = require('autoprefixer');
 const distPath = path.resolve(__dirname, "dist");
 module.exports = {
@@ -35,7 +31,6 @@ module.exports = {
             },
         ]
     },
-    plugins: [htmlWebpackPlugin],
     resolve: {
         extensions: [".js", ".jsx"],
         alias: {
