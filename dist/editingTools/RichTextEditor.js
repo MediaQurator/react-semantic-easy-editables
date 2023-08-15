@@ -114,16 +114,18 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.handleBlur = function (event) {
-      event.preventDefault();
-      event.persist();
+      if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
+        event.preventDefault();
+        event.persist();
 
-      var text = _this.state.editorValue.toString('html');
+        var text = _this.state.editorValue.toString('html');
 
-      _this.props.onContentChange(_extends({}, _this.props.content, {
-        text: text
-      }), function () {
-        _this.props.onSaveMandatory(event);
-      });
+        _this.props.onContentChange(_extends({}, _this.props.content, {
+          text: text
+        }), function () {
+          _this.props.onSaveMandatory(event);
+        });
+      }
     };
 
     _this.state = {

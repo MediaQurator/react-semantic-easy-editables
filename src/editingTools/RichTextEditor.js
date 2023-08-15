@@ -62,16 +62,18 @@ class RichTextEditor extends React.Component {
   }
 
    handleBlur = (event) => {
-
-    event.preventDefault()
-    event.persist();
-     const text = this.state.editorValue.toString('html')
-     this.props.onContentChange({
-       ...this.props.content,
-       text: text
-     }, () => {
-       this.props.onSaveMandatory(event);
-     })
+    if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
+      event.preventDefault()
+      event.persist();
+      const text = this.state.editorValue.toString('html')
+      this.props.onContentChange({
+        ...this.props.content,
+        text: text
+      }, () => {
+        this.props.onSaveMandatory(event);
+      })
+    }
+    
   }
   render() {
     const { editorValue } = this.state;
