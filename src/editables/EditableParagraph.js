@@ -10,6 +10,8 @@ const EditableParagraph = props => {
   };
 
   const { text } = props.content;
+  const placeholder = props.placeholder ? props.placeholder : "";
+  const html = text ? text : placeholder;
 
   return (
     <Editable
@@ -18,7 +20,7 @@ const EditableParagraph = props => {
       content={{ text: text }}
       { ...props }
     >
-      <div className={props.classes} dangerouslySetInnerHTML={ {__html: text} }>
+      <div className={props.classes} dangerouslySetInnerHTML={ {__html: html} }>
       </div>
     </Editable>
   );
