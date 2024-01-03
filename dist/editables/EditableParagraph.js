@@ -21,6 +21,8 @@ var EditableParagraph = function EditableParagraph(props) {
   };
 
   var text = props.content.text;
+  var placeholder = props.placeholder ? props.placeholder : "";
+  var html = text ? text : placeholder;
   return /*#__PURE__*/_react["default"].createElement(_Editable["default"], _extends({
     Editor: _index.RichTextEditor,
     handleSave: handleSave,
@@ -30,7 +32,7 @@ var EditableParagraph = function EditableParagraph(props) {
   }, props), /*#__PURE__*/_react["default"].createElement("div", {
     className: props.classes,
     dangerouslySetInnerHTML: {
-      __html: text
+      __html: html
     }
   }));
 };
