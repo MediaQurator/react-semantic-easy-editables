@@ -96,7 +96,8 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
         var editorValue = module.createValueFromString(text, 'html');
 
         _this.setState({
-          editorValue: editorValue
+          editorValue: editorValue,
+          initialEditorValue: editorValue
         });
       });
     };
@@ -114,14 +115,29 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.handleBlur = function (event) {
-      if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
+      if (event.relatedTarget && event.relatedTarget.tagName === "BUTTON" && event.relatedTarget.textContent === "x") {
         event.preventDefault();
         event.persist();
 
-        var text = _this.state.editorValue.toString('html');
+        var text = _this.state.initialEditorValue.toString('html');
 
         _this.props.onContentChange(_extends({}, _this.props.content, {
           text: text
+        }), function () {
+          _this.props.handleSave(_extends({}, _this.props.content, {
+            text: text
+          }));
+        });
+
+        _this.props.onDelete();
+      } else if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
+        event.preventDefault();
+        event.persist();
+
+        var _text = _this.state.editorValue.toString('html');
+
+        _this.props.onContentChange(_extends({}, _this.props.content, {
+          text: _text
         }), function () {
           _this.props.onSaveMandatory(event);
         });
@@ -129,7 +145,8 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.state = {
-      editorValue: null
+      editorValue: null,
+      initialEditorValue: null
     };
     return _this;
   }

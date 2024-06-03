@@ -69,16 +69,12 @@ var Editable = /*#__PURE__*/function (_React$Component) {
       _this.props.handleSave(_this.state.editingContent);
     };
 
-    _this.onDelete = function () {
+    _this.onDelete = function (e) {
       if (_this.props.onDelete) {
-        return function (e) {
-          _this.stopEditing(e);
+        _this.stopEditing(e);
 
-          _this.props.onDelete();
-        };
-      }
-
-      return null;
+        _this.props.onDelete();
+      } else _this.stopEditing(e);
     };
 
     _this.onContentChange = function (updatedContent, callback) {
@@ -133,7 +129,7 @@ var Editable = /*#__PURE__*/function (_React$Component) {
         toggleEditing: this.toggleEditing,
         startEditing: this.startEditing,
         stopEditing: this.stopEditing,
-        handleDelete: this.onDelete(),
+        handleDelete: this.onDelete,
         onSave: this.onSave,
         fullWidth: fullWidth,
         showActions: showActions,

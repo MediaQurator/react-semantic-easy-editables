@@ -59,13 +59,7 @@ var EditorWrapper = function EditorWrapper(_ref) {
   }), children, isEditing && showActions && /*#__PURE__*/_react["default"].createElement("div", {
     className: "actions",
     style: styles.actions
-  }, /*#__PURE__*/_react["default"].createElement("button", {
-    className: "cancel-icon",
-    style: styles.button,
-    onClick: stopEditing
-  }, /*#__PURE__*/_react["default"].createElement("label", {
-    style: styles.icon
-  }, "x")), handleDelete && !disableDelete && /*#__PURE__*/_react["default"].createElement("div", {
+  }, handleDelete && !disableDelete && /*#__PURE__*/_react["default"].createElement("button", {
     className: "delete-icon",
     style: styles.button,
     onClick: handleDelete
