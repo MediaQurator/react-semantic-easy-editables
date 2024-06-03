@@ -47,22 +47,22 @@ const EditorWrapper = ({ theme, startEditing, stopEditing, isEditing, fullWidth,
       {children}
       {isEditing && showActions && (
         <div className="actions" style={styles.actions}>
-          <button
+          {/* <button
             className="cancel-icon"
             style={styles.button}
             onClick={stopEditing}
           >
             <label  style={styles.icon} >x</label>
-          </button>
+          </button> */}
           {handleDelete &&
             !disableDelete && (
-              <div
+              <button
                 className="delete-icon"
                 style={styles.button}
                 onClick={handleDelete}
               >
                 <label  style={styles.icon} >x</label>
-              </div>
+              </button>
             )}
           <button
             className="save-icon"

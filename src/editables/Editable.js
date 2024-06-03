@@ -42,15 +42,13 @@ class Editable extends React.Component {
     this.props.handleSave(this.state.editingContent);
   };
 
-  onDelete = () => {
+  onDelete = (e) => {
     if (this.props.onDelete) {
-      return (e) => {
         this.stopEditing(e)
         this.props.onDelete()
-      }
     }
 
-    return null
+    else this.stopEditing(e);
   }
 
   onContentChange = (updatedContent, callback) => {
@@ -74,7 +72,7 @@ class Editable extends React.Component {
             toggleEditing={this.toggleEditing}
             startEditing={this.startEditing}
             stopEditing={this.stopEditing}
-            handleDelete={this.onDelete()}
+            handleDelete={this.onDelete}
             onSave={this.onSave}
             fullWidth={fullWidth}
             showActions={showActions}

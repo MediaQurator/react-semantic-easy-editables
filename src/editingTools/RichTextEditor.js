@@ -35,7 +35,10 @@ const styles = {
 class RichTextEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { editorValue: null }
+    this.state = { 
+      editorValue: null,
+      initialEditorValue: null
+     }
   }
 
   componentDidMount() {
@@ -46,7 +49,7 @@ class RichTextEditor extends React.Component {
     import('react-rte').then(module => {
       const text = Boolean(this.props.content) ? this.props.content.text : '';
       const editorValue = module.createValueFromString(text, 'html');
-      this.setState({ editorValue });
+      this.setState({ editorValue, initialEditorValue: editorValue });
     })
 
   }
@@ -62,7 +65,22 @@ class RichTextEditor extends React.Component {
   }
 
    handleBlur = (event) => {
-    if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
+    if (event.relatedTarget && event.relatedTarget.tagName === "BUTTON" && event.relatedTarget.textContent === "x") {
+      event.preventDefault()
+      event.persist();
+      const text = this.state.initialEditorValue.toString('html');
+      this.props.onContentChange({
+        ...this.props.content,
+        text: text
+      }, () => {
+        this.props.handleSave({
+          ...this.props.content,
+          text: text
+        });
+      })
+      this.props.onDelete();
+    }
+    else if (!event.relatedTarget || event.relatedTarget.tagName !== "SELECT") {
       event.preventDefault()
       event.persist();
       const text = this.state.editorValue.toString('html')
