@@ -30,7 +30,7 @@ var theme = {
   actions: {
     position: "absolute",
     right: "6px",
-    bottom: "-12px",
+    top: "-12px",
     display: "flex",
     alignItems: "center",
     zIndex: "99",
