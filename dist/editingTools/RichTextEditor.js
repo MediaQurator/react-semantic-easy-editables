@@ -115,7 +115,7 @@ var RichTextEditor = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.handleBlur = function (event) {
-      if (event.relatedTarget && event.relatedTarget.tagName === "BUTTON" && event.relatedTarget.textContent === "x") {
+      if (event.relatedTarget && event.relatedTarget.classList.contains("delete-icon")) {
         event.preventDefault();
         event.persist();
 
