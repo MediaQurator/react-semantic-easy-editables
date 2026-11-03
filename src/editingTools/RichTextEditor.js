@@ -35,7 +35,7 @@ const styles = {
 class RichTextEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       editorValue: null,
       initialEditorValue: null
      }
@@ -65,7 +65,7 @@ class RichTextEditor extends React.Component {
   }
 
    handleBlur = (event) => {
-    if (event.relatedTarget && event.relatedTarget.tagName === "BUTTON" && event.relatedTarget.textContent === "x") {
+    if (event.relatedTarget && event.relatedTarget.classList.contains("delete-icon")) {
       event.preventDefault()
       event.persist();
       const text = this.state.initialEditorValue.toString('html');
@@ -91,7 +91,7 @@ class RichTextEditor extends React.Component {
         this.props.onSaveMandatory(event);
       })
     }
-    
+
   }
   render() {
     const { editorValue } = this.state;
